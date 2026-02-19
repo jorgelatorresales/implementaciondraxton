@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAXTON × Dcycle — Plan de puesta en marcha</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pri:#2947FE;--priH:#1F37CC;--b80:#EFF6FF;--b100:#DBEAFE;--wh:#FFF;--bg:#FAFAFA;--brd:#CFD6E1;--ts:#415162;--tx:#252429;--warn:#FF7629;--err:#FF2990;--ok:#38CFD9}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+.hdr{background:var(--wh);border-bottom:1px solid var(--brd);padding:20px 28px 0;position:sticky;top:0;z-index:10}
+.hdr-in{max-width:960px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.logo-ic{background:var(--pri);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--wh);font-weight:900;font-size:15px}
+.logo-sub{color:var(--ts);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;display:block}
+.logo-t{color:var(--tx);font-size:17px;font-weight:800}
+.logo-t span{color:var(--pri)}
+.tabs{display:flex;gap:0;overflow-x:auto}
+.tab{background:transparent;border:none;border-bottom:2.5px solid transparent;color:var(--ts);padding:8px 14px;cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap;transition:all .15s;font-family:inherit}
+.tab.on{color:var(--pri);font-weight:700;border-bottom-color:var(--pri)}
+.main{max-width:960px;margin:0 auto;padding:24px 28px 60px}
+.card{background:var(--wh);border-radius:12px;border:1px solid var(--brd);padding:20px 24px;margin-bottom:12px}
+.badge{background:var(--b100);color:var(--pri);padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600}
+.blue-box{background:var(--b80);border-radius:12px;padding:22px 24px;border:1px solid var(--b100);margin-bottom:20px}
+.blue-box-sm{background:var(--b80);border-radius:10px;padding:14px 18px;border:1px solid var(--b100);margin-bottom:20px}
+h2{font-size:28px;font-weight:800;margin:0 0 6px}
+h2.sec{font-size:24px;margin-bottom:20px}
+.subtitle{color:var(--ts);font-size:15px;line-height:1.65;margin:0 0 24px}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:24px}
+.stat{background:var(--wh);border-radius:10px;padding:14px 16px;border:1px solid var(--brd)}
+.stat-k{color:var(--ts);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px}
+.stat-v{color:var(--tx);font-size:16px;font-weight:700}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+.chk{display:flex;gap:8px;align-items:flex-start}
+.chk-i{color:var(--pri);font-size:14px;margin-top:2px;flex-shrink:0}
+.chk span{color:var(--tx);font-size:14px;line-height:1.55}
+.card h3{color:var(--tx);font-size:15px;font-weight:700;margin:0 0 8px}
+.card p{color:var(--ts);font-size:14px;line-height:1.65;margin:0}
+.blue-box h3{color:var(--pri);font-size:16px;font-weight:700;margin:0 0 14px}
+.blue-box-sm p{color:var(--tx);font-size:14px;line-height:1.6;margin:0}
+.blue-box-sm strong{color:var(--pri)}
+.mod-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.mod-t{color:var(--tx);font-weight:700;font-size:16px}
+.mod-d{color:var(--ts);font-size:14px;line-height:1.6;margin:0 0 10px}
+.bul{display:flex;gap:6px;align-items:flex-start;margin-bottom:3px}
+.bul-d{color:var(--pri);font-size:8px;margin-top:6px;flex-shrink:0}
+.bul span{color:var(--tx);font-size:13px;line-height:1.5}
+.ph-btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:20px}
+.ph-btn{border-radius:10px;padding:12px 14px;cursor:pointer;text-align:left;transition:all .15s;font-family:inherit;background:var(--wh);border:1.5px solid var(--brd);color:var(--tx)}
+.ph-btn.on{color:var(--wh)}
+.ph-btn div:first-child{font-weight:700;font-size:13px}
+.ph-btn div:last-child{font-size:12px;opacity:.8}
+.rm-card{background:var(--wh);border-radius:12px;border:1px solid var(--brd);overflow:hidden}
+.rm-hdr{padding:16px 22px;border-bottom:1px solid var(--brd);background:var(--b80)}
+.rm-hdr span:first-child{font-weight:700;font-size:17px;color:var(--tx)}
+.rm-hdr span:last-child{color:var(--ts);font-size:13px;margin-left:10px}
+.rm-step{padding:14px 22px}
+.rm-step+.rm-step{border-top:1px solid var(--brd)}
+.rm-row{display:flex;justify-content:space-between;margin-bottom:4px;flex-wrap:wrap;gap:4px}
+.rm-w{font-weight:700;font-size:13px}
+.rm-who{color:var(--ts);font-size:11px;background:var(--bg);padding:2px 8px;border-radius:4px}
+.rm-a{color:var(--tx);font-size:14px;line-height:1.55;margin:0 0 4px}
+.rm-out{display:flex;gap:5px;align-items:center}
+.rm-out span:first-child{color:var(--pri);font-size:11px}
+.rm-out span:last-child{color:var(--pri);font-size:12px;font-weight:600}
+.tbl{background:var(--wh);border-radius:10px;border:1px solid var(--brd);overflow:hidden;margin-bottom:20px}
+.tbl-hdr{display:grid;grid-template-columns:2.5fr 75px 1.5fr;padding:8px 14px;background:var(--bg);border-bottom:1px solid var(--brd)}
+.tbl-hdr span{color:var(--ts);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.tbl-r{display:grid;grid-template-columns:2.5fr 75px 1.5fr;padding:9px 14px;align-items:center}
+.tbl-r+.tbl-r{border-top:1px solid var(--brd)}
+.tbl-r span:first-child{color:var(--tx);font-size:13px}
+.tbl-r span:last-child{color:var(--ts);font-size:12px}
+.prio{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600}
+.prio i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.role{background:var(--wh);border-radius:10px;border:1px solid var(--brd);border-left-width:3px;padding:16px 20px;margin-bottom:10px}
+.role-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:4px}
+.role-t{color:var(--tx);font-weight:700;font-size:15px}
+.role-p{font-size:13px;font-weight:600}
+.role p{color:var(--ts);font-size:13px;line-height:1.55;margin:0}
+.sec-label{color:var(--pri);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 10px}
+.sec-label2{margin-top:24px}
+.section{display:none}.section.on{display:block}
+</style>
+</head>
+<body>
+
+<div class="hdr"><div class="hdr-in">
+  <div class="logo">
+    <div class="logo-ic">d</div>
+    <div><span class="logo-sub">Plan de puesta en marcha</span><span class="logo-t">DRAXTON <span>×</span> Dcycle</span></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-s="resumen">Resumen</button>
+    <button class="tab" data-s="alcance">Alcance</button>
+    <button class="tab" data-s="roadmap">Roadmap</button>
+    <button class="tab" data-s="datos">Datos</button>
+    <button class="tab" data-s="equipo">Equipo</button>
+  </div>
+</div></div>
+
+<div class="main">
+
+<!-- RESUMEN -->
+<div class="section on" id="resumen">
+  <h2>DRAXTON Mobility Inspired</h2>
+  <p class="subtitle">Plan para centralizar, estandarizar y operar todos vuestros datos ESG desde una única plataforma. Sin más excels dispersos, sin depender de consultoras para saber dónde están las cosas, sin duplicar trabajo entre plantas.</p>
+  <div class="grid6">
+    <div class="stat"><div class="stat-k">Sector</div><div class="stat-v">Automoción</div></div>
+    <div class="stat"><div class="stat-k">Empleados</div><div class="stat-v">~4.000</div></div>
+    <div class="stat"><div class="stat-k">Plantas</div><div class="stat-v">~13 instalaciones</div></div>
+    <div class="stat"><div class="stat-k">Países</div><div class="stat-v">6</div></div>
+    <div class="stat"><div class="stat-k">Estructura</div><div class="stat-v">2 subgrupos</div></div>
+    <div class="stat"><div class="stat-k">Inicio</div><div class="stat-v">Septiembre 2026</div></div>
+  </div>
+  <div class="blue-box">
+    <h3>Lo que vais a conseguir</h3>
+    <div class="check-grid">
+      <div class="chk"><span class="chk-i">✔</span><span>Un único sitio con todos los datos ESG de las 13 plantas, trazados y listos para auditar</span></div>
+      <div class="chk"><span class="chk-i">✔</span><span>Huella de carbono completa (Scope 1, 2 y 3) con detalle por planta y subgrupo</span></div>
+      <div class="chk"><span class="chk-i">✔</span><span>EINF bajo GRI generado desde los mismos datos — sin duplicar trabajo</span></div>
+      <div class="chk"><span class="chk-i">✔</span><span>Dashboards multisitio para comparar rendimiento entre instalaciones y decidir con datos</span></div>
+      <div class="chk"><span class="chk-i">✔</span><span>Control continuo de indicadores, no solo el photo finish de final de año</span></div>
+      <div class="chk"><span class="chk-i">✔</span><span>Métricas clave de CDP y EcoVadis centralizadas y actualizadas desde la misma base de datos</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>La situación hoy</h3>
+    <p>Vuestros datos ESG viven dispersos: excels diferentes por planta, facturas en varios idiomas, datos sociales recopilados a mano por cada negocio y consolidados manualmente, y una dependencia histórica de Global Factor como memoria del proceso. El equipo central (3 personas) dedica más tiempo a perseguir datos que a analizarlos. Con Dcycle, eso se acaba: cada dato se captura una vez, desde su origen, y sirve para todo lo que necesitéis.</p>
+  </div>
+</div>
+
+<!-- ALCANCE -->
+<div class="section" id="alcance">
+  <h2 class="sec">Qué incluye vuestro proyecto</h2>
+  <div class="card">
+    <div class="mod-hdr"><span class="mod-t">Huella de Carbono Corporativa</span><span class="badge">HdC</span></div>
+    <p class="mod-d">Scope 1, 2 y 3 para las 13 plantas con consolidación global y por subgrupo. Foco especial en materiales comprados (70-80% de vuestro Scope 3), medidos por tipología de producto.</p>
+    <div class="bul"><span class="bul-d">◆</span><span>Scope 1: combustibles, gases refrigerantes, vehículos</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Scope 2: electricidad, garantías de origen, fotovoltaica</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Scope 3: materiales, viajes de negocio, commuting, logística</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Informes Dcycle, GHG Protocol, MITECO</span></div>
+  </div>
+  <div class="card">
+    <div class="mod-hdr"><span class="mod-t">EINF bajo GRI</span><span class="badge">EINF</span></div>
+    <p class="mod-d">Estado de Información No Financiera completo. Vuestra Doble Materialidad y Gap Analysis ya existentes se incorporan directamente.</p>
+    <div class="bul"><span class="bul-d">◆</span><span>Indicadores ambientales (se reutilizan de HdC)</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Indicadores sociales (RRHH, PRL, diversidad)</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Gobernanza (políticas, cadena de suministro)</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Generación del informe EINF alineado a GRI</span></div>
+  </div>
+  <div class="card">
+    <div class="mod-hdr"><span class="mod-t">Proyectos personalizados</span><span class="badge">Custom</span></div>
+    <p class="mod-d">Estructuras ad-hoc para necesidades que no encajan en plantillas estándar. Tres proyectos identificados:</p>
+    <div class="bul"><span class="bul-d">◆</span><span>Comparación de consumos y rendimiento entre líneas de negocio e instalaciones</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Tracking de métricas clave para CDP Climate Change (no el reporte completo, sino los indicadores que alimentáis desde Dcycle)</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Tracking de métricas clave para EcoVadis (los indicadores cuantitativos que ya capturáis en la plataforma, no el formulario entero)</span></div>
+  </div>
+  <div class="card">
+    <div class="mod-hdr"><span class="mod-t">Dashboards ESG multisitio</span><span class="badge">Dashboards</span></div>
+    <p class="mod-d">KPIs por planta, región y global. Líneas base, objetivos, tendencias. Capacidad de crear métricas propias (ej: porcentaje de recuperación de material).</p>
+    <div class="bul"><span class="bul-d">◆</span><span>KPIs de huella por planta</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>KPIs EINF (ambiental + social + gobernanza)</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Métricas internas personalizadas</span></div>
+    <div class="bul"><span class="bul-d">◆</span><span>Agregación por planta, región y global</span></div>
+  </div>
+  <div class="blue-box-sm">
+    <p><strong>La clave:</strong> todos estos módulos comparten los mismos datos. Una factura de electricidad que cargáis para la Huella de Carbono alimenta automáticamente el EINF, los dashboards y las métricas de CDP/EcoVadis. Cero duplicación.</p>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="section" id="roadmap">
+  <h2 class="sec" style="margin-bottom:6px">Roadmap de puesta en marcha</h2>
+  <p style="color:var(--ts);font-size:14px;margin:0 0 18px">14 semanas. Los workstreams de HdC, EINF y proyectos avanzan en paralelo — los datos se capturan una vez y alimentan todo.</p>
+  <div class="ph-btns" id="phBtns">
+    <button class="ph-btn on" data-ph="0" style="border-color:var(--pri);background:var(--pri);color:#fff"><div>Fase 1</div><div>S1-3</div></button>
+    <button class="ph-btn" data-ph="1"><div>Fase 2</div><div>S3-8</div></button>
+    <button class="ph-btn" data-ph="2"><div>Fase 3</div><div>S8-12</div></button>
+    <button class="ph-btn" data-ph="3"><div>Fase 4</div><div>S12-14</div></button>
+  </div>
+  <div id="phContent"></div>
+</div>
+
+<!-- DATOS -->
+<div class="section" id="datos">
+  <h2 class="sec" style="margin-bottom:6px">Qué datos necesitaréis preparar</h2>
+  <div class="blue-box-sm">
+    <p><strong>Cómo funciona esto:</strong> primero resolvemos el problema de datos (que las 13 plantas carguen info de forma estandarizada), después aplicamos los cálculos. Cada dato se captura una vez y se reutiliza para todo: HdC, EINF, dashboards, CDP, EcoVadis. Una factura cubre múltiples necesidades.</p>
+  </div>
+  <div id="dataTables"></div>
+</div>
+
+<!-- EQUIPO -->
+<div class="section" id="equipo">
+  <h2 class="sec">Roles y equipo</h2>
+  <div class="sec-label">Equipo Draxton</div>
+  <div class="role" style="border-left-color:#6366F1"><div class="role-row"><span class="role-t">ESG Lead</span><span class="role-p" style="color:#6366F1">Clotilde Tesón</span></div><p>Dirección estratégica del proyecto ESG. Validación de entregables finales (EINF, dashboards para dirección). Interlocución con dirección y aprobación de decisiones clave.</p></div>
+  <div class="role" style="border-left-color:var(--pri)"><div class="role-row"><span class="role-t">Environmental Lead</span><span class="role-p" style="color:var(--pri)">Raúl Antúnez</span></div><p>Owner operativo del proyecto Dcycle. Punto de contacto principal con vuestro Sustainability Specialist. Supervisa la carga de datos ambientales, valida factores de emisión, coordina con plantas.</p></div>
+  <div class="role" style="border-left-color:var(--warn)"><div class="role-row"><span class="role-t">Social Lead</span><span class="role-p" style="color:var(--warn)">Laura</span></div><p>Responsable de la recopilación y carga de datos sociales: RRHH, PRL, retribuciones, diversidad. Coordina con el departamento de RRHH de cada negocio.</p></div>
+  <div class="role" style="border-left-color:var(--ok)"><div class="role-row"><span class="role-t">Data Operators</span><span class="role-p" style="color:var(--ok)">~13 responsables de planta</span></div><p>Cargan datos de su instalación (facturas, consumos, agua, residuos). Acceso limitado a su planta, tareas claras y acotadas.</p></div>
+  <div class="role" style="border-left-color:var(--brd)"><div class="role-row"><span class="role-t">Department Operators</span><span class="role-p" style="color:var(--ts)">Responsables de otros dptos.</span></div><p>Personas de compras, logística, legal, PRL u otros departamentos que proporcionan datos específicos para el proyecto. Participan puntualmente según la fase y el tipo de dato que se necesite.</p></div>
+  <div class="sec-label sec-label2">Equipo Dcycle</div>
+  <div class="role" style="border-left-color:var(--pri);border-color:var(--b100)"><div class="role-row"><span class="role-t">Sustainability Specialist (dedicado)</span></div><p>Vuestro punto de contacto único. Guía toda la puesta en marcha: configura la plataforma, forma al equipo, resuelve dudas de datos y metodología, valida los cálculos, configura dashboards y proyectos. Aborda primero el problema de datos (volumen, dispersión, calidad) y después aplica la metodología.</p></div>
+  <div class="role" style="border-left-color:var(--brd)"><div class="role-row"><span class="role-t">Soporte continuo</span></div><p>Chat de soporte in-app, Knowledge Base, Dcycle Academy con tutoriales, y email directo (clients@dcycle.io). Disponible siempre, no solo en las sesiones.</p></div>
+</div>
+
+</div>
+
+<script>
+// Tab navigation
+var tabs=document.querySelectorAll('.tab'),secs=document.querySelectorAll('.section');
+tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.classList.remove('on')});
+  secs.forEach(function(x){x.classList.remove('on')});
+  t.classList.add('on');
+  document.getElementById(t.dataset.s).classList.add('on');
+})});
+
+// Roadmap phases
+var phColors=['#2947FE','#6366F1','#FF7629','#38CFD9'];
+var phases=[
+  {n:"Configuración y Kick-off",w:"S1-3",steps:[
+    {w:"Pre-kick-off",a:"Configuración de cuenta: ~13 plantas, 2 subgrupos, permisos. Email de bienvenida con accesos y recursos.",who:"Dcycle + Zirkel",out:"Plataforma lista, accesos creados"},
+    {w:"Semana 1",a:"Kick-off (~90 min): presentación del Sustainability Specialist, validación de objetivos y estructura, asignación de roles, demo de navegación.",who:"Dcycle + Zirkel + Draxton",out:"Roadmap validado, estructura confirmada"},
+    {w:"Semana 2",a:"Formación Scope 1-2 + Setup EINF (~75 min): carga de combustibles, electricidad, facturas en múltiples idiomas. Subida de la Doble Materialidad existente.",who:"Dcycle + Zirkel + Draxton",out:"Proyectos HdC y EINF creados"},
+    {w:"Semana 2-3",a:"Formación para responsables de planta (~45 min): sesión para Data Operators. Cómo acceder, cargar datos, seguir tareas.",who:"Dcycle + Zirkel + plantas",out:"Equipos de planta operativos"},
+  ]},
+  {n:"Recopilación de datos",w:"S3-8",steps:[
+    {w:"Semana 3-6",a:"Carga de Scope 1-2 por cada planta: facturas de electricidad, combustibles, gases. El equipo central supervisa. Soporte vía chat.",who:"Draxton + Dcycle + Zirkel",out:"Scope 1-2 cargado (13 plantas)"},
+    {w:"Semana 3-6",a:"En paralelo: datos sociales EINF. Laura coordina RRHH, PRL, retribuciones y diversidad desde cada negocio.",who:"Draxton (Laura)",out:"Datos sociales en plataforma"},
+    {w:"Semana 4",a:"Follow-up Scope 3 (~75 min): formación en materiales comprados (por tipología de producto), viajes, commuting, logística. Formato de extracción del ERP.",who:"Dcycle + Zirkel + Raúl",out:"Equipo formado en Scope 3"},
+    {w:"Semana 4-8",a:"Carga progresiva de Scope 3. Prioridad absoluta a materiales comprados (70-80% del total).",who:"Draxton + Dcycle + Zirkel",out:"Scope 3 en plataforma"},
+    {w:"Semana 5-7",a:"Datos de gobernanza: políticas corporativas, cadena de suministro.",who:"Draxton (Clotilde)",out:"Documentación cargada"},
+  ]},
+  {n:"Cálculo, validación y dashboards",w:"S8-12",steps:[
+    {w:"Semana 8-9",a:"Validación (~60 min): revisión conjunta de datos, gaps, factores de emisión. Especial atención a materiales.",who:"Dcycle + Zirkel + Raúl + Laura",out:"Datos validados"},
+    {w:"Semana 9-10",a:"Cálculo de Huella de Carbono: HdC corporativa global y por planta/subgrupo.",who:"Dcycle + Zirkel + Raúl",out:"HdC completa Scope 1, 2 y 3"},
+    {w:"Semana 9-11",a:"Dashboards + Proyectos custom (~75 min): KPIs multisitio, líneas base, objetivos. Configuración de métricas para CDP y EcoVadis. Métricas personalizadas.",who:"Dcycle + Zirkel + Raúl + Clotilde",out:"Dashboards operativos, métricas CDP/EcoVadis"},
+    {w:"Semana 10-12",a:"Borrador EINF bajo GRI: generación y revisión iterativa.",who:"Dcycle + Zirkel + Clotilde + Laura",out:"EINF generado y revisado"},
+  ]},
+  {n:"Reporting final y autonomía",w:"S12-14",steps:[
+    {w:"Semana 12-13",a:"Reporting (~60 min): informes finales, métricas de intensidad, oportunidades de reducción. Revisión de métricas CDP y EcoVadis.",who:"Dcycle + Zirkel + Raúl + Clotilde",out:"Informes finales"},
+    {w:"Semana 13-14",a:"Cierre (~45 min): logros vs objetivos, formación avanzada (factores de emisión personalizados), planificación del siguiente ciclo.",who:"Dcycle + Zirkel + equipo Draxton",out:"Plan del siguiente ciclo"},
+  ]},
+];
+var curPh=0;
+function renderPhase(){
+  var p=phases[curPh],c=phColors[curPh],h='<div class="rm-card"><div class="rm-hdr"><span>'+p.n+'</span><span>'+p.w+'</span></div>';
+  p.steps.forEach(function(st){
+    h+='<div class="rm-step"><div class="rm-row"><span class="rm-w" style="color:'+c+'">'+st.w+'</span><span class="rm-who">'+st.who+'</span></div><p class="rm-a">'+st.a+'</p><div class="rm-out"><span>→</span><span>'+st.out+'</span></div></div>';
+  });
+  h+='</div>';
+  document.getElementById('phContent').innerHTML=h;
+  document.querySelectorAll('.ph-btn').forEach(function(b,i){
+    if(i===curPh){b.classList.add('on');b.style.background=phColors[i];b.style.borderColor=phColors[i];b.style.color='#fff';}
+    else{b.classList.remove('on');b.style.background='var(--wh)';b.style.borderColor='var(--brd)';b.style.color='var(--tx)';}
+  });
+}
+document.querySelectorAll('.ph-btn').forEach(function(b){b.addEventListener('click',function(){curPh=parseInt(b.dataset.ph);renderPhase()})});
+renderPhase();
+
+// Data tables
+var prioC={"Crítica":"#FF2990","Alta":"#FF7629","Media":"#2947FE","Baja":"#38CFD9"};
+var groups=[
+  {t:"Huella de Carbono — Scope 1 y 2",rows:[
+    ["Combustibles fósiles por planta","Alta","Facturas / ERP"],
+    ["Gases refrigerantes (recargas)","Alta","Registros de mantenimiento"],
+    ["Electricidad (facturas)","Alta","Facturas (varios idiomas)"],
+    ["Garantías de origen","Alta","Compras / energía"],
+    ["Producción fotovoltaica","Media","Contadores de planta"],
+    ["Flota de vehículos","Media","Tarjetas combustible"],
+  ]},
+  {t:"Huella de Carbono — Scope 3",rows:[
+    ["Materiales comprados (kg, tipo de producto)","Crítica","ERP / dpto. compras"],
+    ["Viajes de negocio","Alta","Agencias viajes / notas de gastos"],
+    ["Commuting empleados","Media","Encuesta a empleados"],
+    ["Mercancías enviadas/recibidas","Media","Dpto. logística"],
+    ["Fin de vida productos","Baja","Estimación sectorial"],
+    ["Agua (consumo por planta)","Alta","Facturas"],
+    ["Residuos (peligrosos / no peligrosos)","Alta","PDF/Excel de gestor"],
+  ]},
+  {t:"EINF — Social y Gobernanza",rows:[
+    ["Plantilla RRHH (contrato, sexo, edad, rol, negocio)","Alta","RRHH cada negocio"],
+    ["Retribuciones por categoría","Alta","RRHH"],
+    ["Prevención riesgos laborales","Alta","PRL cada negocio"],
+    ["Formación y diversidad","Media","RRHH"],
+    ["Políticas y cadena de suministro","Media","Legal / compliance"],
+    ["Doble Materialidad + Gap Analysis","Alta","Documento existente"],
+  ]},
+];
+var dh='';
+groups.forEach(function(g){
+  dh+='<h3 style="color:var(--tx);font-size:15px;font-weight:700;margin:0 0 8px">'+g.t+'</h3><div class="tbl"><div class="tbl-hdr"><span>Dato</span><span>Prioridad</span><span>Fuente</span></div>';
+  g.rows.forEach(function(r){
+    var pc=prioC[r[1]]||'#999';
+    dh+='<div class="tbl-r"><span>'+r[0]+'</span><span class="prio" style="color:'+pc+'"><i style="background:'+pc+'"></i>'+r[1]+'</span><span>'+r[2]+'</span></div>';
+  });
+  dh+='</div>';
+});
+document.getElementById('dataTables').innerHTML=dh;
+</script>
+</body>
+</html>
